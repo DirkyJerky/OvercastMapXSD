@@ -1,4 +1,4 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="https://maps.oc.tc" targetNamespace="maps.oc.tc">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
     <xs:element name="map" type="Map">
     </xs:element>
     <xs:complexType name="Map">
