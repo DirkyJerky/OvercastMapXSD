@@ -1,56 +1,69 @@
+<?xml version="1.0"?>
+
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
     <xs:element name="map" type="Map">
+        <xs:annotation>
+            How do do this right....
+        </xs:annotation>
     </xs:element>
+
     <xs:complexType name="Map">
         <xs:all>
-            <xs:attribute name="proto" type="Version" default="4.0.0"/>
-            <xs:element name="name" type="xs:string"/>
-            <xs:element name="version" type="Version"/>
-            <xs:element name="contributors" type="Contributors"/>
-            <xs:element name="objective" type="xs:string"/>
-            <xs:element name="authors" type="Authors"/>
-            <xs:element name="rules" type="Rules"/>
-            <xs:element name="maxbuildheight" minOccurs="0" type="xs:integer"/>
-            <xs:element name="filters" type="Filters"/>
-            <xs:element name="regions" type="Regions"/>
-            <xs:element name="spawns" type="Spawns"/>
-            <xs:element name="teams" type="Teams"/>
-            <xs:element name="kits" type="Kits"/>
-            <xs:element name="cores" minOccurs="0" type="Core"/>
-            <xs:element name="score" minOccurs="0" type="Score"/>
-            <xs:element name="killreward" minOccurs="0" type="Killreward"/>
-            <xs:element name="toolrepair" minOccurs="0" type="Toolrepair"/>
-            <xs:element name="itemreward" minOccurs="0" type="Itemreward"/>
-            <xs:element name="playable" minOccurs="0" type="Playable"/>
-            <xs:element name="tutorial" type="Tutorial"/>
-            <xs:element name="destroyables" minOccurs="0" type="Destroyables"/>
-            <xs:element name="timelock" minOccurs="0" type="OnOff"/>
-            <xs:element name="destroyables" minOccurs="0" type="Destroyables"/>
+            <xs:attribute name="proto"        type="Version"           default="4.0.0"/>
+
+            <xs:element name="name"           type="xs:string"/>
+            <xs:element name="version"        type="Version"/>
+            <xs:element name="contributors"   type="Contributors"/>
+            <xs:element name="objective"      type="xs:string"/>
+            <xs:element name="authors"        type="Authors"/>
+            <xs:element name="rules"          type="Rules"/>
+            <xs:element name="tutorial"       type="Tutorial"/>
+
+            <xs:element name="filters"        type="Filters"/>
+            <xs:element name="regions"        type="Regions"/>
+
+            <xs:element name="spawns"         type="Spawns"/>
+            <xs:element name="teams"          type="Teams"/>
+            <xs:element name="kits"           type="Kits"/>
+
+            <xs:element name="cores"          type="Core"              minOccurs="0"/>
+            <xs:element name="wools"          type="Wool"              minOccurs="0"/>
+            <xs:element name="destroyables"   type="Destroyables"      minOccurs="0"/>
+            <xs:element name="score"          type="Score"             minOccurs="0"/>
+
+            <xs:element name="killreward"     type="Killreward"        minOccurs="0"/>
+            <xs:element name="toolrepair"     type="Toolrepair"        minOccurs="0"/>
+            <xs:element name="maxbuildheight" type="xs:unsignedByte"   minOccurs="0"/>
+            <xs:element name="itemreward"     type="Itemreward"        minOccurs="0"/>
+            <xs:element name="playable"       type="Playable"          minOccurs="0"/>
+            <xs:element name="destroyables"   type="Destroyables"      minOccurs="0"/>
+            <xs:element name="timelock"       type="OnOff"             minOccurs="0"/>
         </xs:all>
     </xs:complexType>
+
     <xs:complexType name="Version">
-        <xsd:restriction base="xsd:token">
-            <xsd:pattern value="\d(\.\d){0,}"/>
-        </xsd:restriction>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d(\.\d){0,}"/>
+        </xs:restriction>
     </xs:complexType>
     <xs:complexType name="OnOff">
-        <xsd:restriction base="xsd:token">
-            <xsd:pattern value="on|off"/>
-        </xsd:restriction>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="on|off"/>
+        </xs:restriction>
     </xs:complexType>
     <xs:complexType name="Contributors">
         <xs:all>
-            <xs:element name="contributor" maxOccurs="unbounded" type="xs:string">
+            <xs:element name="contributor" maxOccurs="unbounded" type="xs:string"/>
         </xs:all>
     </xs:complexType>
     <xs:complexType name="Authors">
         <xs:all>
-            <xs:element name="author" maxOccurs="unbounded" type="xs:string">
+            <xs:element name="author" maxOccurs="unbounded" type="xs:string"/>
         </xs:all>
     </xs:complexType>
     <xs:complexType name="Rules">
         <xs:all>
-            <xs:element name="rule" maxOccurs="unbounded" type="xs:string">
+            <xs:element name="rule" maxOccurs="unbounded" type="xs:string"/>
         </xs:all>
     </xs:complexType>
 </xs:schema>
