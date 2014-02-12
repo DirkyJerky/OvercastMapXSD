@@ -3,11 +3,9 @@
     </xs:element>
     <xs:complexType name="Map">
         <xs:all>
-            <xs:attribute type="Version" name="proto" default="4.0.0"/>
+            <xs:attribute name="proto" type="Version" default="4.0.0"/>
             <xs:element name="name" type="xs:string"/>
-            <xs:element name="version" type="Version">
-            <xs:element>
-            
+            <xs:element name="version" type="Version"/>
             <xs:element name="contributors" type="Contributors"/>
             <xs:element name="objective" type="xs:string"/>
             <xs:element name="authors" type="Authors"/>
@@ -23,20 +21,21 @@
             <xs:element name="killreward" minOccurs="0" type="Killreward"/>
             <xs:element name="toolrepair" minOccurs="0" type="Toolrepair"/>
             <xs:element name="itemreward" minOccurs="0" type="Itemreward"/>
+            <xs:element name="playable" minOccurs="0" type="Playable"/>
             <xs:element name="tutorial" type="Tutorial"/>
             <xs:element name="destroyables" minOccurs="0" type="Destroyables"/>
-            <xs:element name="timelock" minOccurs="0" type="xs:string">
-                <xsd:restriction base="xsd:token">
-                    <xsd:pattern value="on|off"/>
-                </xsd:restriction>
-            <xs:element>
-            
+            <xs:element name="timelock" minOccurs="0" type="OnOff"/>
             <xs:element name="destroyables" minOccurs="0" type="Destroyables"/>
         </xs:all>
     </xs:complexType>
     <xs:complexType name="Version">
         <xsd:restriction base="xsd:token">
             <xsd:pattern value="\d(\.\d){0,}"/>
+        </xsd:restriction>
+    </xs:complexType>
+    <xs:complexType name="OnOff">
+        <xsd:restriction base="xsd:token">
+            <xsd:pattern value="on|off"/>
         </xsd:restriction>
     </xs:complexType>
     <xs:complexType name="Contributors">
