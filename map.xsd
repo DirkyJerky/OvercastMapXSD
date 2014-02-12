@@ -3,6 +3,25 @@
     </xs:element>
     <xs:complexType name="Map">
         <xs:all>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="version" type="xs:string">
+                <xsd:restriction base="xsd:token">
+                    <xsd:pattern value="\d(\.\d){0,}"/>
+                </xsd:restriction>
+            <xs:element>
+            <xs:element name="objective" type="xs:string"/>
+            <xs:element name="authors" type="Authors"/>
+            <xs:element name="rules" type="Rules"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="Authors">
+        <xs:all>
+            <xs:element name="author" maxOccurs="unbounded" type="xs:string">
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="Rules">
+        <xs:all>
+            <xs:element name="rule" maxOccurs="unbounded" type="xs:string">
         </xs:all>
     </xs:complexType>
 </xs:schema>
