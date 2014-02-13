@@ -3,7 +3,7 @@
     targetNamespace="https://maps.oc.tc/map.xsd" 
     xmlns="https://maps.oc.tc/map.xsd"
     xmlns:bi="bukkitItems">
-    <xsd:import namespace="bukkitItems" schemaLocation="./bukkitItems.xsd"/> 
+    <xs:import namespace="bukkitItems" schemaLocation="./bukkitItems.xsd"/> 
     <xs:element name="map" type="Map">
         <xs:annotation>How do do this right....</xs:annotation>
     </xs:element>
