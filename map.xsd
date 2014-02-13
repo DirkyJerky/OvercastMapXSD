@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <xs:schema 
-    targetNamespace="https://maps.oc.tc"
+    targetNamespace="https://maps.oc.tc/map.xsd"
     
-    xmlns:octc="https://maps.oc.tc/map.xsd"
+    xmlns:octc="https://maps.oc.tc"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:bi="bukkitItems">
-    <import namespace="bukkitItems" schemaLocation="./bukkitItems.xsd"/> 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <include schemaLocation="bukkitItems.xsd"/> 
     <element name="map" type="Map">
         <annotation>How do do this right....</annotation>
     </element>
