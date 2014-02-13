@@ -1,70 +1,73 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    targetNamespace="https://maps.oc.tc/map.xsd" 
-    xmlns="https://maps.oc.tc/map.xsd"
+<schema 
+    targetNamespace="https://maps.oc.tc"
+    
+    xmlns:octc="https://maps.oc.tc/map.xsd"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:bi="bukkitItems">
-    <xs:import namespace="bukkitItems" schemaLocation="./bukkitItems.xsd"/> 
-    <xs:element name="map" type="Map">
-        <xs:annotation>How do do this right....</xs:annotation>
-    </xs:element>
-    <xs:complexType name="Map">
-        <xs:all>
-            <xs:attribute default="1.3.1" name="proto" type="Version"/>
-            <xs:element name="name" type="xs:string"/>
-            <xs:element name="version" type="Version"/>
-            <xs:element name="contributors" type="Contributors"/>
-            <xs:element name="objective" type="xs:string"/>
-            <xs:element name="authors" type="Authors"/>
-            <xs:element name="rules" type="Rules"/>
-            <xs:element name="tutorial" type="Tutorial"/>
-            <xs:element name="filters" type="Filters"/>
-            <xs:element name="regions" type="Regions"/>
-            <xs:element name="spawns" type="Spawns"/>
-            <xs:element name="teams" type="Teams"/>
-            <xs:element name="kits" type="Kits"/>
-            <xs:element minOccurs="0" name="cores" type="Core"/>
-            <xs:element minOccurs="0" name="wools" type="Wool"/>
-            <xs:element minOccurs="0" name="destroyables" type="Destroyables"/>
-            <xs:element minOccurs="0" name="score" type="Score"/>
-            <xs:element minOccurs="0" name="blitz" type="Blitz"/>
-            <xs:element minOccurs="0" name="killreward" type="Killreward"/>
-            <xs:element minOccurs="0" name="toolrepair" type="Toolrepair"/>
-            <xs:element minOccurs="0" name="maxbuildheight" type="xs:unsignedByte"/>
-            <xs:element minOccurs="0" name="itemreward" type="Itemreward"/>
-            <xs:element minOccurs="0" name="playable" type="Playable"/>
-            <xs:element minOccurs="0" name="destroyables" type="Destroyables"/>
-            <xs:element minOccurs="0" name="timelock" type="OnOff"/>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="include" type="Include"/>
-        </xs:all>
-    </xs:complexType>
-    <xs:complexType name="include">
-        <xs:sequence>
-            <xs:attribute name="src" type="xs:anyURI"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="Version">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="\d(\.\d){0,}"/>
-        </xs:restriction>
-    </xs:complexType>
-    <xs:complexType name="OnOff">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="on|off"/>
-        </xs:restriction>
-    </xs:complexType>
-    <xs:complexType name="Contributors">
-        <xs:all>
-            <xs:element maxOccurs="unbounded" name="contributor" type="xs:string"/>
-        </xs:all>
-    </xs:complexType>
-    <xs:complexType name="Authors">
-        <xs:all>
-            <xs:element maxOccurs="unbounded" name="author" type="xs:string"/>
-        </xs:all>
-    </xs:complexType>
-    <xs:complexType name="Rules">
-        <xs:all>
-            <xs:element maxOccurs="unbounded" name="rule" type="xs:string"/>
-        </xs:all>
-    </xs:complexType>
-</xs:schema>
+    <import namespace="bukkitItems" schemaLocation="./bukkitItems.xsd"/> 
+    <element name="map" type="Map">
+        <annotation>How do do this right....</annotation>
+    </element>
+    <complexType name="Map">
+        <all>
+            <attribute default="1.3.1" name="proto" type="Version"/>
+            <element name="name" type="xs:string"/>
+            <element name="version" type="Version"/>
+            <element name="contributors" type="Contributors"/>
+            <element name="objective" type="xs:string"/>
+            <element name="authors" type="Authors"/>
+            <element name="rules" type="Rules"/>
+            <element name="tutorial" type="Tutorial"/>
+            <element name="filters" type="Filters"/>
+            <element name="regions" type="Regions"/>
+            <element name="spawns" type="Spawns"/>
+            <element name="teams" type="Teams"/>
+            <element name="kits" type="Kits"/>
+            <element minOccurs="0" name="cores" type="Core"/>
+            <element minOccurs="0" name="wools" type="Wool"/>
+            <element minOccurs="0" name="destroyables" type="Destroyables"/>
+            <element minOccurs="0" name="score" type="Score"/>
+            <element minOccurs="0" name="blitz" type="Blitz"/>
+            <element minOccurs="0" name="killreward" type="Killreward"/>
+            <element minOccurs="0" name="toolrepair" type="Toolrepair"/>
+            <element minOccurs="0" name="maxbuildheight" type="xs:unsignedByte"/>
+            <element minOccurs="0" name="itemreward" type="Itemreward"/>
+            <element minOccurs="0" name="playable" type="Playable"/>
+            <element minOccurs="0" name="destroyables" type="Destroyables"/>
+            <element minOccurs="0" name="timelock" type="OnOff"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="include" type="Include"/>
+        </all>
+    </complexType>
+    <complexType name="Include">
+        <sequence>
+            <attribute name="src" type="xs:anyURI"/>
+        </sequence>
+    </complexType>
+    <complexType name="Version">
+        <restriction base="xs:string">
+            <pattern value="\d(\.\d){0,}"/>
+        </restriction>
+    </complexType>
+    <complexType name="OnOff">
+        <restriction base="xs:string">
+            <pattern value="on|off"/>
+        </restriction>
+    </complexType>
+    <complexType name="Contributors">
+        <all>
+            <element maxOccurs="unbounded" name="contributor" type="xs:string"/>
+        </all>
+    </complexType>
+    <complexType name="Authors">
+        <all>
+            <element maxOccurs="unbounded" name="author" type="xs:string"/>
+        </all>
+    </complexType>
+    <complexType name="Rules">
+        <all>
+            <element maxOccurs="unbounded" name="rule" type="xs:string"/>
+        </all>
+    </complexType>
+</schema>
