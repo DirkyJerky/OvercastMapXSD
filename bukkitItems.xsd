@@ -6,6 +6,7 @@
     
     <complexType name="Item">
         <restriction base="string">
+        <choice>
             <enumeration value="air"/>
             <enumeration value="stone"/>
             <enumeration value="grass"/>
@@ -1174,6 +1175,7 @@
             <enumeration value="RECORD 11"/>
             <enumeration value="RECORD_12"/>
             <enumeration value="RECORD 12"/>
+            </choice>
         </restriction>
     </complexType>
 </xs:schema>
