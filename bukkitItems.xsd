@@ -4,7 +4,59 @@
     
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     
-    <complexType name="Item">
+    
+    <complexType name="BukkitColor">
+    	<choice>
+    		<enumeration value="AQUA" /> 
+			<enumeration value="BLACK" />
+			<enumeration value="BLUE" />
+			<enumeration value="DARK_AQUA" /> 
+			<enumeration value="DARK_BLUE" />
+			<enumeration value="DARK_GRAY" />
+			<enumeration value="DARK_GREEN" />
+			<enumeration value="DARK_PURPLE" />
+			<enumeration value="DARK_RED" />
+			<enumeration value="GOLD" />
+			<enumeration value="GRAY" />
+			<enumeration value="GREEN" />
+			<enumeration value="LIGHT_PURPLE" /> 
+			<enumeration value="RED" />
+			<enumeration value="WHITE" />
+			<enumeration value="YELLOW" />
+			<enumeration value="DARK AQUA" /> 
+			<enumeration value="DARK BLUE" />
+			<enumeration value="DARK GRAY" />
+			<enumeration value="DARK GREEN" />
+			<enumeration value="DARK PURPLE" />
+			<enumeration value="DARK RED" />
+			<enumeration value="LIGHT PURPLE" />
+    		<enumeration value="aqua" /> 
+			<enumeration value="black" />
+			<enumeration value="blue" />
+			<enumeration value="dark_aqua" /> 
+			<enumeration value="dark_blue" />
+			<enumeration value="dark_gray" />
+			<enumeration value="dark_green" />
+			<enumeration value="dark_purple" />
+			<enumeration value="dark_red" />
+			<enumeration value="gold" />
+			<enumeration value="gray" />
+			<enumeration value="green" />
+			<enumeration value="light_purple" /> 
+			<enumeration value="red" />
+			<enumeration value="white" />
+			<enumeration value="yellow" />
+			<enumeration value="dark aqua" /> 
+			<enumeration value="dark blue" />
+			<enumeration value="dark gray" />
+			<enumeration value="dark green" />
+			<enumeration value="dark purple" />
+			<enumeration value="dark red" />
+			<enumeration value="light purple" />
+    	</choice>
+    </complexType>
+    
+    <complexType name="BukkitItem">
         <restriction base="string">
         <choice>
             <enumeration value="air"/>
