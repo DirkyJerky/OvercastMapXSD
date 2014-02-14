@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
-<xs:schema targetNamespace="https://maps.oc.tc/map.xsd" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:octc="https://maps.oc.tc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema targetNamespace="https://maps.oc.tc/map.xsd" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:octc="https://maps.oc.tc" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:bukkit="bukkitRef">
     <!-- Note to self: When referencing primitive types, use the xs: namespace -->
 
     <!-- For complex type referencing, the type name (under the octc namespace) is the element name that is capitalized -->
-    <include schemaLocation="bukkitItems.xsd"/>
+    <import namespace="bukkitRef" schemaLocation="./bukkitRef.xsd" />
     <element name="map" type="Map">
         <annotation>How do do this right....</annotation>
     </element>
