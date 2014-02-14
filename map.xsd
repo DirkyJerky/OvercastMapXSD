@@ -25,21 +25,41 @@
             <element name="spawns" type="Spawns"/>
             <element name="teams" type="Teams"/>
             <element name="kits" type="Kits"/>
-            <element minOccurs="0" name="cores" type="Core"/>
-            <element minOccurs="0" name="wools" type="Wool"/>
-            <element minOccurs="0" name="destroyables" type="Destroyables"/>
-            <element minOccurs="0" name="score" type="Score"/>
-            <element minOccurs="0" name="blitz" type="Blitz"/>
-            <element minOccurs="0" name="killreward" type="Killreward"/>
-            <element minOccurs="0" name="toolrepair" type="Toolrepair"/>
-            <element minOccurs="0" name="maxbuildheight" type="xs:unsignedByte"/>
-            <element minOccurs="0" name="itemreward" type="Itemreward"/>
-            <element minOccurs="0" name="playable" type="Playable"/>
-            <element minOccurs="0" name="destroyables" type="Destroyables"/>
-            <element minOccurs="0" name="timelock" type="OnOff"/>
+            <element name="cores" type="Core" use="optional"/>
+            <element name="wools" type="Wool" use="optional"/>
+            <element name="destroyables" type="Destroyables" use="optional"/>
+            <element name="score" type="Score" use="optional"/>
+            <element name="blitz" type="Blitz" use="optional"/>
+            <element name="killreward" type="Killreward" use="optional"/>
+            <element name="toolrepair" type="Toolrepair" use="optional"/>
+            <element name="maxbuildheight" type="xs:unsignedByte" use="optional"/>
+            <element name="itemreward" type="Itemreward" use="optional"/>
+            <element name="playable" type="Playable" use="optional"/>
+            <element name="destroyables" type="Destroyables" use="optional"/>
+            <element name="timelock" type="OnOff" use="optional"/>
+            <element name="rage" use="optional"/>
+            <element name="disabledamage" use="optional" type="Disabledamage"/>
             <element maxOccurs="unbounded" minOccurs="0" name="include" type="Include"/>
         </all>
     </complexType>
+
+    <complexType name="Teams">
+    	<all>
+
+    		<element name="team" type="complexType">
+    			<complexContent>
+    				<all>
+    					<attribute name="color" type="Color" use="required"/>
+    					<attribute name="max" type="xs:positiveInteger" use="required" />
+    					<attribute name="maxoverflow" type="xs:positiveInteger" use="optional" />
+    				</all>
+    			</complexContent>
+    		</element>
+    		
+    	</all>
+    </complexType>
+
+
     <complexType name="Include">
         <sequence>
             <attribute name="src" type="xs:anyURI"/>
@@ -52,7 +72,7 @@
     </complexType>
     <complexType name="OnOff">
         <restriction base="xs:string">
-            <pattern value="on|off"/>
+            <pattern value="(on|off)"/>
         </restriction>
     </complexType>
     <complexType name="Contributors">
