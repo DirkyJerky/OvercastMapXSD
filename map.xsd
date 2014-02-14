@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <xs:schema targetNamespace="https://maps.oc.tc/map.xsd" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:octc="https://maps.oc.tc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <!-- Note to self: When referencing primitive types, use the xs: namespace -->
+
+    <!-- For complex type referencing, the type name (under the octc namespace) is the element name that is capitalized -->
     <include schemaLocation="bukkitItems.xsd"/>
     <element name="map" type="Map">
         <annotation>How do do this right....</annotation>
@@ -49,7 +51,7 @@
             <element name="blockdrops" type="octc:Blockdrops" use="optional"/>
             <element name="autorespawn" type="octc:Autorespawn" use="optional"/>
             <element name="disabledamage" type="octc:Disabledamage" use="optional"/>
-            <element name="time" type="octc:Objectivetime" use="optional"/>
+            <element name="time" type="octc:Time" use="optional"/>
             <element name="renewables" type="octc:Renewables" use="optional"/>
             <element maxOccurs="unbounded" minOccurs="0" name="include" type="octc:Include"/>
         </all>
@@ -76,6 +78,11 @@
         <restriction base="xs:string">
             <pattern value="\d(\.\d){0,}"/>
         </restriction>
+    </complexType>
+    <complexType name="octc:TimeFormat">
+        <extension base="xs:positiveInteger">
+            <pattern value="(\d)+([smhdy]|mo)?"/>
+        </extension>
     </complexType>
     <complexType name="octc:OnOff">
         <restriction base="xs:string">
