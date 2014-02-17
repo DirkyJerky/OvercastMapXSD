@@ -5,23 +5,37 @@
 
     <!-- For complex type referencing, the type name (under the octc namespace) is the element name that is capitalized -->
     <import namespace="bukkitRef" schemaLocation="./bukkitRef.xsd" />
+
     <element name="map" type="Map">
         <annotation>How do do this right....</annotation>
     </element>
+
     <complexType name="Map">
         <all>
             <attribute default="1.3.1" name="proto" type="octc:Version"/>
+
+            <!-- Finished -->
             <element name="name" type="xs:string"/>
+            <element name="objective" type="xs:string"/>
+            <element name="maxbuildheight" type="xs:unsignedByte" use="optional"/>
             <element name="version" type="octc:Version"/>
             <element name="contributors" type="octc:Contributors"/>
-            <element name="objective" type="xs:string"/>
+            <element name="teams" type="octc:Teams"/>
+            <element maxOccurs="unbounded" minOccurs="0" name="include" type="octc:Include"/>
+            <element name="friendlyfire" type="octc:OnOff" use="optional"/>
+            <element name="friendlyfirerefund" type="octc:OnOff" use="optional"/>
+            <element name="rage" use="optional"/>
+            <element name="multitrade" use="optional"/>
+            <element name="ghostsquardon" use="optional"/>
             <element name="authors" type="octc:Authors"/>
             <element name="rules" type="octc:Rules"/>
+            <element name="tnt" type="octc:Tnt" use="optional"/>
+            <!-- END Finished -->
+
             <element name="tutorial" type="octc:Tutorial"/>
             <element name="filters" type="octc:Filters"/>
             <element name="regions" type="octc:Regions"/>
             <element name="spawns" type="octc:Spawns"/>
-            <element name="teams" type="octc:Teams"/>
             <element name="kits" type="octc:Kits"/>
             <element name="cores" type="octc:Core" use="optional"/>
             <element name="wools" type="octc:Wool" use="optional"/>
@@ -30,20 +44,13 @@
             <element name="blitz" type="octc:Blitz" use="optional"/>
             <element name="killreward" type="octc:Killreward" use="optional"/>
             <element name="toolrepair" type="octc:Toolrepair" use="optional"/>
-            <element name="maxbuildheight" type="xs:unsignedByte" use="optional"/>
             <element name="itemreward" type="octc:Itemreward" use="optional"/>
             <element name="playable" type="octc:Playable" use="optional"/>
             <element name="destroyables" type="octc:Destroyables" use="optional"/>
             <element name="timelock" type="octc:OnOff" use="optional"/>
-            <element name="rage" use="optional"/>
-            <element name="multitrade" use="optional"/>
-            <element name="ghostsquardon" use="optional"/>
             <element name="classes" type="octc:Classes" use="optional"/>
-            <element name="modifybowprojectile" type="Modifybowprojectile" use="optional"/>
+            <element name="modifybowprojectile" type="octc:Modifybowprojectile" use="optional"/>
             <element name="mobs" type="octc:Mobs" use="optional"/>
-            <element name="tnt" type="octc:Tnt" use="optional"/>
-            <element name="friendlyfire" type="octc:OnOff" use="optional"/>
-            <element name="friendlyfirerefund" type="octc:OnOff" use="optional"/>
             <element name="proximity-alarms" type="octc:Proximity-alarms" use="optional"/>
             <element name="difficulty" type="octc:Difficulty" use="optional"/>
             <element name="lanes" type="octc:Lanes" use="optional"/>
@@ -54,10 +61,20 @@
             <element name="disabledamage" type="octc:Disabledamage" use="optional"/>
             <element name="time" type="octc:Time" use="optional"/>
             <element name="renewables" type="octc:Renewables" use="optional"/>
-            <element maxOccurs="unbounded" minOccurs="0" name="include" type="octc:Include"/>
         </all>
     </complexType>
-    <complexType name="Teams">
+
+    <complexType name="octc:Tnt">
+    	<element name="instantignite" type="OnOff" />
+    	<element name="blockdamage" type="OnOff" />
+    	<element name="yield" type="octc:Percent" />
+	</complexType>
+    <complexType name="octc:Percent">
+        <restriction base="xs:string">
+            <pattern value="(\d)+%?"/>
+        </restriction>
+    </complexType>
+    <complexType name="octc:Teams">
         <all>
             <element maxOccurs="unbounded" minOccurs="1" name="team" type="complexType">
                 <complexContent>
